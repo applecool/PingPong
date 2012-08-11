@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Ping Pong</title>
+<style>
+#playarena{
+	background: #e0ffe0 url(images/pixel_grid.jpeg);
+	width: 400px;
+	height: 200px;
+	position: relative;
+	outline: hidden;
+}
+
+#ball{
+	background:#fbb;
+	position: absolute;
+	width: 20px;
+	height: 20px;
+	left: 150px;
+	top: 100px;
+	border-radius: 10px;
+}
+
+.paddle{
+  background: #bbf;
+  position: absolute;
+  left: 50px;
+  top: 70px;
+  width: 30px;
+  height: 70px;
+}
+#paddleB{
+	left: 320px;
+}
+</style>
+ </head>
+<body> 
+<header>
+<h1>Ping Pong</h1> </header> 
+<footer>
+Ping Pong Game.
+ </footer>
+ <script type="text/javascript" src="js/jquery-1.8.0.min.js"></script>
+ <script type="text/javascript" src="js/pingponghtml5.js"></script>
+ <div id="scoreboard"> 
+ 	<div class="score">Player A : <span id="scoreA">0</span></div> 
+ 	<div class="score">Player B : <span id="scoreB">0</span></div>
+</div>
+ <div id="game">
+    <div id="playarena">
+      <div id="paddleA" class="paddle"></div>
+      <div id="paddleB" class="paddle"></div>
+      <div id="ball"></div>
+    </div>
+ </div>
+</body>
+
+</html>
