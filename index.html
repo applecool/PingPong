@@ -6,10 +6,11 @@
 <style>
 #playarena{
 	background: #e0ffe0 url(images/pixel_grid.jpeg);
-	width: 400px;
-	height: 200px;
+	width: 700px;
+	height: 300px;
 	position: relative;
 	outline: hidden;
+	
 }
 
 #ball{
@@ -22,7 +23,7 @@
 	border-radius: 10px;
 }
 
-.racket{
+.paddle{
   background: #bbf;
   position: absolute;
   left: 50px;
@@ -30,30 +31,41 @@
   width: 30px;
   height: 70px;
 }
-#racketB{
-	left: 320px;
+#paddleB{
+	left: 620px;
+}
+#game
+{
+padding-top: 50px;
+}
+#scoreboard
+{
+padding-top: 20px;
 }
 </style>
+<style type="text/css">
+.matrix { font-family:Lucida Console, Courier, Monotype; font-size:15pt; text-align:center; width:100px; padding:0px; margin:0px;}
+</style>
+
+ <script type="text/javascript" src="js/matrix.js"></script>
  </head>
-<body> 
-<header>
-<h1>Ping Pong</h1> </header> 
-<footer>
-Ping Pong Game.
- </footer>
+<body align="center"> 
+<div id="matrix">The Ping Pong Game</div>
+<header> 
  <script type="text/javascript" src="js/jquery-1.8.0.min.js"></script>
  <script type="text/javascript" src="js/pingponghtml5.js"></script>
- <div id="scoreboard"> 
- 	<div class="score">Player A : <span id="scoreA">0</span></div> 
- 	<div class="score">Player B : <span id="scoreB">0</span></div>
-</div>
- <div id="game">
+
+ <div id="game" align="center">
     <div id="playarena">
-      <div id="racketA" class="racket"></div>
-      <div id="racketB" class="racket"></div>
+      <div id="paddleA" class="paddle"></div>
+      <div id="paddleB" class="paddle"></div>
       <div id="ball"></div>
     </div>
  </div>
+  <div id="scoreboard"> 
+ 	<div class="score">Player A : <span id="scoreA">0</span></div> 
+ 	<div class="score">Player B : <span id="scoreB">0</span></div>
+</div>
 </body>
 
 </html>

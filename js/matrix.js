@@ -1,4 +1,3 @@
-//This work is done by SravanthiSinha
 <!--
 var rows=11; // must be an odd number
 var speed=20; // lower is faster
