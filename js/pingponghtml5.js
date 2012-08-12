@@ -1,7 +1,7 @@
 //GLOBAL VARIABLES
 	var pingpong = {}
 	
-	pingpong.pressedKeys = [];
+	pingpong.keyStrokes = [];
 
 	pingpong.ball = {
 		speed: 5,
@@ -19,19 +19,19 @@ var KEY = {
     S: 83
 }
 $(function(){
-    $("#paddleB").css("top", "20px");
-  	$("#paddleA").css("top", "60px");
+    $("#racketB").css("top", "20px");
+  	$("#racketA").css("top", "60px");
 
 	pingpong.timer=setInterval(gameloop,30);
 
 	$(document).keydown(function(e){
 
-		pingpong.pressedKeys[e.which] = true;
+		pingpong.keyStrokes[e.which] = true;
 	});
 
 	$(document).keyup(function(e){
 
-		pingpong.pressedKeys[e.which] = false;
+		pingpong.keyStrokes[e.which] = false;
 	});
 
 });
@@ -39,7 +39,7 @@ $(function(){
 	function gameloop() { 
 		
 		moveBall();
-		movePaddles();
+		moverackets();
      }
 
 
@@ -105,32 +105,32 @@ function moveBall(){
 	ball.x += ball.speed * ball.directionX;
 	ball.y += ball.speed * ball.directionY;
 
-	// check moving paddle
+	// check moving racket
 
-	// check left paddle
+	// check left racket
 
-	var paddleAX = parseInt($("#paddleA").css("left")) + parseInt($("#paddleA").css("width"));
+	var racketAX = parseInt($("#racketA").css("left")) + parseInt($("#racketA").css("width"));
 
-	var paddleAYBottom = parseInt($("#paddleA").css("top")) + parseInt($("#paddleA").css("height"));
+	var racketAYBottom = parseInt($("#racketA").css("top")) + parseInt($("#racketA").css("height"));
 
-	var paddleAYTop = parseInt($("#paddleA").css("top"));
+	var racketAYTop = parseInt($("#racketA").css("top"));
 
-	if(ball.x + ball.speed * ball.directionX < paddleAX){
-		if(ball.y + ball.speed * ball.directionY <= paddleAYBottom && ball.y + ball.speed * ball.directionY >= paddleAYTop){
+	if(ball.x + ball.speed * ball.directionX < racketAX){
+		if(ball.y + ball.speed * ball.directionY <= racketAYBottom && ball.y + ball.speed * ball.directionY >= racketAYTop){
 			ball.directionX = 1 ;
 		}
 	}
 
-	//check right paddle
+	//check right racket
 
-	var paddleBX = parseInt($("#paddleB").css("left")) - parseInt($("#paddleB").css("width"));
+	var racketBX = parseInt($("#racketB").css("left")) - parseInt($("#racketB").css("width"));
 
-	var paddleBYBottom = parseInt($("#paddleB").css("top")) + parseInt($("#paddleB").css("height"));
+	var racketBYBottom = parseInt($("#racketB").css("top")) + parseInt($("#racketB").css("height"));
 
-	var paddleBYTop = parseInt($("#paddleB").css("top"));
+	var racketBYTop = parseInt($("#racketB").css("top"));
 
-	if(ball.x + ball.speed * ball.directionX >= paddleBX){
-		if(ball.y + ball.speed * ball.directionY <= paddleBYBottom && ball.y + ball.speed * ball.directionY >= paddleBYTop){
+	if(ball.x + ball.speed * ball.directionX >= racketBX){
+		if(ball.y + ball.speed * ball.directionY <= racketBYBottom && ball.y + ball.speed * ball.directionY >= racketBYTop){
 			ball.directionX = -1;
 		}
 	}
@@ -141,29 +141,29 @@ function moveBall(){
 	});
  }
 
-function movePaddles() { 
+function moverackets() { 
    
-   if (pingpong.pressedKeys[KEY.UP]) { 
-		var top = parseInt($("#paddleB").css("top"));
- 		$("#paddleB").css("top",top-5);
+   if (pingpong.keyStrokes[KEY.UP]) { 
+		var top = parseInt($("#racketB").css("top"));
+ 		$("#racketB").css("top",top-5);
 	} 
 	
-	if (pingpong.pressedKeys[KEY.DOWN]) { 
+	if (pingpong.keyStrokes[KEY.DOWN]) { 
 
-		var top = parseInt($("#paddleB").css("top")); 
-		$("#paddleB").css("top",top+5);
+		var top = parseInt($("#racketB").css("top")); 
+		$("#racketB").css("top",top+5);
 }
 
-	if(pingpong.pressedKeys[KEY.W]){
+	if(pingpong.keyStrokes[KEY.W]){
 
-		var top= parseInt($("#paddleA").css("top"));
-		$("#paddleA").css("top",top-5);
+		var top= parseInt($("#racketA").css("top"));
+		$("#racketA").css("top",top-5);
 }
 
-	if(pingpong.pressedKeys[KEY.S]){
+	if(pingpong.keyStrokes[KEY.S]){
 
-		var top =parseInt($("#paddleA").css("top"));
-		$("#paddleA").css("top",top+5);
+		var top =parseInt($("#racketA").css("top"));
+		$("#racketA").css("top",top+5);
 }
 }
 
